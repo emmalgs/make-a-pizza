@@ -1,3 +1,12 @@
+// Utility Logic
+
+function financial(number) {
+  return parseFloat(number).toFixed(2)
+}
+
+
+// Business Logic
+
 const specialToppings = {
   hay: 2.99,
   carrots: 3.75, 
@@ -22,6 +31,11 @@ const sizes = {
   34: 32.00
 }
 
+function Order() {
+  this.pizzas = {};
+  pizzaId = 0;
+}
+
 function PizzaMe(toppings, size) {
   this.toppings = toppings;
   this.size = size;
@@ -35,5 +49,6 @@ PizzaMe.prototype.cost = function() {
       extraCost += regToppings[topping]
     } else { extraCost += specialToppings[topping] }
   });
-  return parseFloat(baseCost + extraCost).toFixed(2);
-}
+  return financial(baseCost + extraCost);
+};
+
