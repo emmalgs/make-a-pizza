@@ -169,6 +169,22 @@ function startOrder() {
   order = new Order();
 }
 
+function displayReceipt() {
+  const receiptDisplay = document.querySelector("#receipt");
+  const orders = Object.keys(order.pizzas)
+  orders.forEach(function(item) {
+    let pizzaCost = document.createElement("div");
+    let pizzaToppings = document.createElement("div");
+    let pizzaSize = document.createElement("div");
+
+    pizzaCost.innerText = order.pizzas[item].cost;
+    pizzaToppings.innerText = order.pizzas[item].toppings.join(", ");
+    pizzaSize = order.pizzas[item].size;
+
+    receiptDisplay.append(pizzaCost, pizzaToppings, pizzaSize)
+  })
+}
+
 function handleFormSubmission(e) {
   e.preventDefault();
   const regToppings = getRegToppingValues();
@@ -191,4 +207,5 @@ window.addEventListener("load", function() {
   displaySizeOptions();
   this.document.querySelector("form").addEventListener("submit", handleFormSubmission);
   this.document.querySelector("button#start-order").addEventListener("click", startOrder)
+  this.document.querySelector("button#submit-final-order").addEventListener("click", displayReceipt)
 })
