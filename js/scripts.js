@@ -229,6 +229,8 @@ function displayReceipt() {
     list.append(pizzaSize, pizzaToppings, pizzaCost)
     orderList.append(list);
   });
+  const total = document.querySelector(".total")
+  total.innerText = `Order Total: $${order.totalOrderCost()}`
 }
 
 function handleFormSubmission(e) {
