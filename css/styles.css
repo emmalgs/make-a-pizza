@@ -147,7 +147,7 @@ span {
 }
 
 .order-info {
-  grid-area: 3 / 8 / 13 / 13;
+  grid-area: 1 / 8 / 13 / 13;
   font-size: 1.8em;
 }
 
@@ -167,6 +167,16 @@ li .order-toppings {
   font-style: italic;
 }
 
+li .delete {
+  border-style: none;
+  background-color: var(--red);
+  color: var(--light);
+  font-size: .5em;
+  font-family: var(--main-font);
+  text-transform: uppercase;
+  border-radius: 10px;
+}
+
 #submit-final-order {
   border-style: none;
   font-family: var(--main-font);
@@ -182,13 +192,14 @@ li .order-toppings {
 #receipt {
   z-index: 2;
   position: fixed;
-  margin-top: 10%;
+  margin-top: 5%;
   margin-left: 20%;
   background-color: var(--yellow);
-  height: 70%;
+  height: auto;
   width: 60%;
   font-size: 1.2em;
   padding: 12px;
+  border-radius: 10px;
 }
 
 .receipt-container {

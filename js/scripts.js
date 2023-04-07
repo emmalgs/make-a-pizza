@@ -207,7 +207,7 @@ function displayOrderInfo(cost, pizza) {
 
   deleteBtn.setAttribute("class", "delete");
   deleteBtn.setAttribute("id", id);
-  deleteBtn.innerText = "X"
+  deleteBtn.innerText = "Delete From Order"
 
   orderNumber.setAttribute("id", `order${id}`);
   orderNumber.append(sizeDisplay, toppingDisplay, pizzaCost, deleteBtn);
