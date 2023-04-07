@@ -15,10 +15,10 @@ const specialToppings = {
 }
 const regToppings = {
   ricotta: .50,
-  sdtoms: .50,
+  "sun-dried tomatoes": .50,
   anchovies: .75,
   bacon: 1.25,
-  cheese: 0,
+  cheese: 0.10,
   mozarella: .50,
   mushrooms: .50
 }
@@ -60,3 +60,25 @@ PizzaMe.prototype.cost = function() {
   return financial(baseCost + extraCost);
 };
 
+// UI Logic
+
+function displayRegToppings() {
+  const regToppingsContainer = document.getElementById("reg-toppings");
+  let regToppingNames = Object.keys(regToppings);
+  regToppingNames.forEach(function(topping) {
+    let label = document.createElement("label")
+    let checkbox = document.createElement("input");
+
+    label.for = topping;
+    label.innerText = `${topping}: $${financial(regToppings[topping])}`;
+    checkbox.type = "checkbox";
+    checkbox.name = topping;
+    checkbox.value = topping;
+
+    regToppingsContainer.append(checkbox, label)
+  })
+}
+
+window.addEventListener("load", function() {
+  displayRegToppings();
+})
