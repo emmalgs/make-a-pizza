@@ -1,3 +1,64 @@
+@import url('https://fonts.googleapis.com/css2?family=Beth+Ellen&family=Fruktur&family=Josefin+Sans:ital,wght@0,300;0,700;1,300&family=Montserrat:ital,wght@0,400;0,700;1,200&family=Oi&family=PT+Mono&family=Righteous&family=Sedgwick+Ave+Display&family=Unbounded:wght@300;800&display=swap');
+
+
+:root {
+  --main-font: "Josefin Sans", Helvetica, Arial, sans-serif;
+  --light: #FFF1D0;
+  --red: #DD1C1A;
+  --yellow: #F0C808;
+  --blue: #07A0C3;
+  --dark: #0C1618;
+}
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: var(--main-font);
+  background-color: var(--light);
+}
+
+.container {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  grid-template-rows: repeat(6, 1fr);
+  width: 95vw;
+}
+
+h1 {
+  font-family: "Sedgwick Ave Display", Times, serif;
+  text-transform: uppercase;
+  text-align: center;
+  font-size: 3.2em;
+  grid-area: 1 / 1 / 2 / 7;
+  color: var(--yellow);
+  background-color: var(--blue);
+  padding: 20px;
+  width: 85%;
+  margin: auto;
+  border-radius: 10px;
+  border: 5px dotted var(--red);
+  box-shadow: 2px 2px 10px var(--dark);
+}
+
+h4 {
+  font-style: italic;
+  text-transform: uppercase;
+  grid-area: 2 / 1 / 3 / 7;
+  text-align: center;
+  font-size: 1.5em;
+}
+
+#start-order {
+  font-family: var(--main-font);
+  text-transform: uppercase;
+  font-weight: bold;
+  grid-area: 3 / 3 / 4 / 5;
+  border-radius: 8px;
+  border-style: none;
+  font-size: 1.5em;
+}
+
 .hidden {
   display: none;
 }

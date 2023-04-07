@@ -181,8 +181,8 @@ function displayReceipt() {
     pizzaToppings.innerText = order.pizzas[item].toppings.join(", ");
     pizzaSize = order.pizzas[item].size;
 
-    receiptDisplay.append(pizzaCost, pizzaToppings, pizzaSize)
-  })
+    receiptDisplay.append(pizzaCost, pizzaToppings, pizzaSize);
+  });
 }
 
 function handleFormSubmission(e) {

@@ -9,26 +9,28 @@
   <title>Buckey's One Stop Pizza Shoppe</title>
 </head>
 <body>
-  <h1>Buckey's One Stop Pizza Shoppe</h1>
-  <h4>Get 'em hot!</h4>
-  <button id="start-order">Start Your Order</button>
-  <div id="order-form" class="hidden">
-    <form>
-      <div id="reg-toppings">
-        <h2>Regular Toppings:</h2>
+  <div class="container">
+    <h1>Buckey's One Stop Pizza Shoppe</h1>
+    <h4>Get 'em hot!</h4>
+    <button id="start-order">Start Order</button>
+    <div id="order-form" class="hidden">
+      <form>
+        <div id="reg-toppings">
+          <h2>Regular Toppings:</h2>
+        </div>
+        <div id="special-toppings">
+          <h2>Buckey's Special Toppings:</h2>
+        </div>
+        <div id="sizes">
+          <h2>Choose Size:</h2>
+        </div>
+        <button type="submit">Add To Order</button>
+      </form>
+      <div class="order-info">
+        <button id="submit-final-order" class="hidden">Submit Final Order</button>
       </div>
-      <div id="special-toppings">
-        <h2>Buckey's Special Toppings:</h2>
-      </div>
-      <div id="sizes">
-        <h2>Choose Size:</h2>
-      </div>
-      <button type="submit">Add To Order</button>
-    </form>
-    <div class="order-info">
-      <button id="submit-final-order" class="hidden">Submit Final Order</button>
+      <div id="receipt"></div>
     </div>
-    <div id="receipt"></div>
   </div>
 </body>
 </html>
