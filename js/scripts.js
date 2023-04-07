@@ -36,6 +36,10 @@ function Order() {
   pizzaId = 0;
 }
 
+Order.prototype.addPizza = function(pizza) {
+  this.pizzas[pizza.size] = pizza;
+}
+
 function PizzaMe(toppings, size) {
   this.toppings = toppings;
   this.size = size;
