@@ -134,6 +134,13 @@ function getSpecialToppingValues() {
   return specialToppingsArray
 }
 
+function resetOrder() {
+  const checked = document.querySelectorAll("input:checked")
+  checked.forEach(function(item) {
+    item.checked = false
+  });
+}
+
 function displayOrderInfo(cost, pizza) {
   const orderDisplay = document.querySelector(".order-info");
   const totalCost = document.createElement("div");
@@ -151,6 +158,8 @@ function displayOrderInfo(cost, pizza) {
   orderDisplay.append(sizeDisplay, toppingDisplay, totalCost);
 }
 
+
+
 function handleFormSubmission(e) {
   e.preventDefault();
   const regToppings = getRegToppingValues();
@@ -162,6 +171,7 @@ function handleFormSubmission(e) {
   const cost = pizza.cost();
 
   displayOrderInfo(cost, pizza)
+  resetOrder()
 }
 
 window.addEventListener("load", function() {
