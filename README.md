@@ -1,3 +1,36 @@
+# Buckey's One Stop Pizza Shopper
+
+#### By _**Emma Gerigscott**_
+
+#### _A webpage that let's you order a few awesome pizzas featuring chef Buckey's specials_
+
+## Technologies Used
+
+* HTML
+* CSS
+* JavaScript
+
+## Description
+
+A mock pizza ordering webpage to practice Object-Oriented JavaScript. Select from any number of regular topping, specialty toppings, and make sure to select the pizza size! Finally, submit your final order when you have it where you like it, and view your receipt. Be warned--our chef is indeed a guinea pig.
+
+## Setup/Installation Requirements
+
+* _Clone this repository to your desktop_
+* _Navigate to the directory_
+* _Open index.html in your browser_
+
+## Known Bugs
+
+* _Not enough guinea pig pictures_
+* _No individual pizza editing functionality; can only delete individual pizzas_
+
+## License
+
+[MIT](https://opensource.org/licenses/MIT)
+
+Copyright (c) 2023 Emma Gerigscott
+
 # TDD
 
 #### Describe: PizzaMe()
