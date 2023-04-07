@@ -1,3 +1,7 @@
+// Global Variables
+
+let order;
+
 // Utility Logic
 
 function financial(number) {
@@ -142,6 +146,7 @@ function resetOrder() {
 }
 
 function displayOrderInfo(cost, pizza) {
+  document.querySelector("#submit-final-order").removeAttribute("class");
   const orderDisplay = document.querySelector(".order-info");
   const totalCost = document.createElement("div");
   const toppingDisplay = document.createElement("div");
@@ -155,10 +160,14 @@ function displayOrderInfo(cost, pizza) {
 
   sizeDisplay.setAttribute("class", "order-size");
   sizeDisplay.innerText = `${pizza.size}-inch`
-  orderDisplay.append(sizeDisplay, toppingDisplay, totalCost);
+  orderDisplay.prepend(sizeDisplay, toppingDisplay, totalCost);
 }
 
-
+function startOrder() {
+  document.getElementById("order-form").removeAttribute("class");
+  document.getElementById("start-order").setAttribute("class", "hidden");
+  order = new Order();
+}
 
 function handleFormSubmission(e) {
   e.preventDefault();
@@ -169,6 +178,8 @@ function handleFormSubmission(e) {
   
   let pizza = new PizzaMe(toppings, size);
   const cost = pizza.cost();
+  pizza.cost = cost;
+  order.addPizza(pizza);
 
   displayOrderInfo(cost, pizza)
   resetOrder()
@@ -178,5 +189,6 @@ window.addEventListener("load", function() {
   displayRegToppings();
   displaySpecialToppings();
   displaySizeOptions();
-  this.document.querySelector("form").addEventListener("submit", handleFormSubmission)
+  this.document.querySelector("form").addEventListener("submit", handleFormSubmission);
+  this.document.querySelector("button#start-order").addEventListener("click", startOrder)
 })
