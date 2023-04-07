@@ -70,12 +70,15 @@ function displayRegToppings() {
   const regToppingsContainer = document.getElementById("reg-toppings");
   let regToppingNames = Object.keys(regToppings);
   regToppingNames.forEach(function(topping) {
-    let option = document.createElement("div")
-    let label = document.createElement("label")
+    let option = document.createElement("div");
+    let span = document.createElement("span");
+    let label = document.createElement("label");
     let checkbox = document.createElement("input");
 
+    span.innerText = `$${financial(regToppings[topping])}`;
     label.for = topping;
-    label.innerText = `${topping}: $${financial(regToppings[topping])}`;
+    label.innerText = `${topping}`;
+    label.append(span)
     checkbox.type = "checkbox";
     checkbox.setAttribute("class", "regs");
     checkbox.name = topping;
@@ -90,12 +93,15 @@ function displaySpecialToppings() {
   const specialToppingsContainer = document.getElementById("special-toppings");
   let specialToppingNames = Object.keys(specialToppings);
   specialToppingNames.forEach(function(topping) {
-    let option =document.createElement("div")
-    let label = document.createElement("label")
+    let option =document.createElement("div");
+    let span = document.createElement("span");
+    let label = document.createElement("label");
     let checkbox = document.createElement("input");
 
+    span.innerText = `$${financial(specialToppings[topping])}`;
     label.for = topping;
-    label.innerText = `${topping}: $${financial(specialToppings[topping])}`;
+    label.innerText = `${topping}`;
+    label.append(span)
     checkbox.type = "checkbox";
     checkbox.setAttribute("class", "specials");
     checkbox.name = topping;
@@ -110,12 +116,15 @@ function displaySizeOptions() {
   const sizeContainer = document.getElementById("sizes");
   let sizeNames = Object.keys(sizes);
   sizeNames.forEach(function(size) {
-    let option = document.createElement("div")
+    let option = document.createElement("div");
+    let span = document.createElement("span");
     let label = document.createElement("label");
     let radio = document.createElement("input");
 
+    span.innerText = `$${financial(sizes[size])}`
     label.for = `size${size}`;
     label.innerText = `${size}-inch`;
+    label.append(span);
     radio.type = "radio";
     radio.name = `size`;
     radio.id = `size${size}`;
