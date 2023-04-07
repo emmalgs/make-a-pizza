@@ -10,9 +10,12 @@
 </head>
 <body>
   <div class="container">
-    <h1>Buckey's One Stop Pizza Shoppe</h1>
-    <h4>Get 'em hot!</h4>
+    <header>
+      <h1>Buckey's One Stop Pizza Shoppe</h1>
+      <h4>Get 'em hot!</h4>
+    </header>
     <button class="start-order" id="first-order">Start Order</button>
+    <div class="background">BUCKEY'S<br>ONE-STOP<br>PIZZASHOPPE</div>
     <div id="order-form" class="hidden">
       <form>
         <div id="sizes">
@@ -24,7 +27,7 @@
         <div id="special-toppings">
           <h2>Buckey's Special Toppings:</h2>
         </div>
-        <button type="submit">Add To Order</button>
+        <button type="submit">+</button>
       </form>
     </div>
     <div class="order-info">
@@ -33,6 +36,8 @@
       <button id="submit-final-order" class="hidden">Submit Final Order</button>
     </div>
       <div id="receipt" class="hidden">
+        <h4>Pizza On the Way BEEP BEEP!</h4>
+        <ol class="order-list"></ol>
         <button class="start-order" id="new-order">New Order</button>
       </div>
   </div>

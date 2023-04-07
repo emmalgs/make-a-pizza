@@ -189,6 +189,8 @@ function displayOrderInfo(cost, pizza) {
   sizeDisplay.innerText = `${pizza.size}-inch`
   orderNumber.append(sizeDisplay, toppingDisplay, pizzaCost);
 
+  total.innerText = `Order Total: $${order.totalOrderCost()}`
+
   orderDisplay.append(orderNumber);
 }
 
@@ -196,14 +198,13 @@ function startOrder() {
   document.getElementById("order-form").removeAttribute("class");
   document.getElementById("first-order").setAttribute("class", "hidden");
   document.getElementById("receipt").setAttribute("class", "hidden");
-  document.querySelectorAll(".order-cost").forEach(function(element) {
-    element.remove();
-  });
-  document.querySelectorAll(".order-toppings").forEach(function(element) {
-    element.remove();
-  });
-  document.querySelectorAll(".order-size").forEach(function(element) {
-    element.remove();
+  document.querySelector("header").setAttribute("class", "hidden")
+  document.querySelector("#total").innerText = '';
+  const orderLists = document.querySelectorAll(".order-list");
+  orderLists.forEach(function(list) {
+    while (list.firstChild) {
+      list.removeChild(list.firstChild);
+    };
   });
   document.getElementById("submit-final-order").setAttribute("class", "hidden");
   order = new Order();
@@ -212,8 +213,10 @@ function startOrder() {
 function displayReceipt() {
   const receiptDisplay = document.querySelector("#receipt");
   receiptDisplay.removeAttribute("class")
+  const orderList = receiptDisplay.querySelector(".order-list");
   const orders = Object.keys(order.pizzas)
   orders.forEach(function(item) {
+    let list = document.createElement("li");
     let pizzaCost = document.createElement("div");
     let pizzaToppings = document.createElement("div");
     let pizzaSize = document.createElement("div");
@@ -223,7 +226,8 @@ function displayReceipt() {
     pizzaToppings.setAttribute("class", "receipt-info")
     pizzaSize = `${order.pizzas[item].size}-inch`;
 
-    receiptDisplay.prepend(pizzaSize, pizzaToppings, pizzaCost);
+    list.append(pizzaSize, pizzaToppings, pizzaCost)
+    orderList.append(list);
   });
 }
 

@@ -10,6 +10,19 @@
   --dark: #0C1618;
 }
 
+.hidden {
+  display: none;
+}
+
+.background {
+  z-index: -2;
+  font-family: "Sedgwick Ave Display", Helvetica, sans-serif;
+  position: fixed;
+  font-size: 20vw;
+  color: var(--yellow);
+  opacity: 30%;
+}
+
 * {
   box-sizing: border-box;
 }
@@ -26,19 +39,21 @@ body {
   width: 95vw;
 }
 
+header {
+  grid-area: 1 / 1 / 2 / 13;
+}
+
 h1 {
   font-family: "Sedgwick Ave Display", Times, serif;
   text-transform: uppercase;
   text-align: center;
   font-size: 3.2em;
-  grid-area: 1 / 1 / 2 / 13;
   color: var(--yellow);
   background-color: var(--blue);
   padding: 20px;
   width: 85%;
   margin: auto;
   border-radius: 10px;
-  border: 5px dotted var(--red);
   box-shadow: 2px 2px 10px var(--dark);
 }
 
@@ -54,11 +69,12 @@ h4 {
   font-family: var(--main-font);
   text-transform: uppercase;
   font-weight: bold;
-  grid-area: 3 / 5 / 4 / 9;
+  grid-area: 2 / 6 / 3 / 8;
   border-radius: 8px;
   border-style: none;
   font-size: 1.5em;
   background-color: var(--red);
+  height: 40%;
 }
 
 .start-order:hover {
@@ -67,7 +83,7 @@ h4 {
 }
 
 #order-form {
-  grid-area: 3 / 1 / 13 / 8;
+  grid-area: 1 / 1 / 13 / 8;
 }
 
 
@@ -75,6 +91,26 @@ form {
   display: flex;
   flex-direction: column;
   align-items: center;
+}
+
+form button {
+  border-style: none;
+  font-size: 3em;
+  background: var(--blue);
+  color: var(--yellow);
+  border-radius: 50%;
+  height: 60px;
+  width: 60px;
+  text-align: center;
+  position: fixed;
+  align-self: flex-end;
+}
+
+form button:hover {
+  box-shadow: 2px 5px 10px grey;
+  transition: 0.2s;
+  color: var(--dark);
+  background-color: var(--yellow);
 }
 
 #reg-toppings,
@@ -133,16 +169,20 @@ li .order-toppings {
 #receipt {
   z-index: 2;
   position: fixed;
-  margin-top: 20%;
-  margin-left: 25%;
+  margin-top: 10%;
+  margin-left: 20%;
   background-color: var(--yellow);
-  height: 50%;
-  width: 50%;
+  height: 70%;
+  width: 60%;
   font-size: 1.8em;
-  padding: 12px;
+  padding: 20px;
 }
 
 
-.hidden {
-  display: none;
+#new-order {
+  font-size: 1em;
+  height: 40px;
+  margin: 15px;
 }
+
+
