@@ -38,4 +38,16 @@ const order = new Order();
 order.addPizza(newPizza);
 order.addPizza(pizza2);
 order;
-Expected Output: { pizzas: {18: { toppings: ["ricotta", "sdtoms", "mushrooms"], size: "18" }, 20: {["hay", "sdtoms", "mozarella", "pellets"], "20"}}, pizzaId: 0; }
+Expected Output: { pizzas: {18: { toppings: ["ricotta", "sdtoms", "mushrooms"], size: "18" }, 20: {["hay", "sdtoms", "mozarella", "pellets"], "20"}}, pizzaId: 0; };
+
+#### Describe: Order.prototype.assignPizzaId()
+
+Test: "It should increment and assign each pizza added to the order an id"
+Code:
+const newPizza = new PizzaMe(["ricotta", "sdtoms", "mushrooms"], "18");
+const pizza2 = new PizzaMe (["hay", "sdtoms", "mozarella", "pellets"], "20");
+const order = new Order();
+order.addPizza(newPizza);
+order.addPizza(pizza2);
+order;
+Expected Output: { pizzas: {1: { toppings: ["ricotta", "sdtoms", "mushrooms"], size: "18" }, 2: {["hay", "sdtoms", "mozarella", "pellets"], "20"}}, pizzaId: 0; };

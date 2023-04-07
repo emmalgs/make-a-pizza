@@ -4,7 +4,6 @@ function financial(number) {
   return parseFloat(number).toFixed(2)
 }
 
-
 // Business Logic
 
 const specialToppings = {
@@ -33,12 +32,17 @@ const sizes = {
 
 function Order() {
   this.pizzas = {};
-  pizzaId = 0;
+  this.pizzaId = 0;
 }
 
+Order.prototype.assignPizzaId = function() {
+  this.pizzaId++;
+  return this.pizzaId;
+};
+
 Order.prototype.addPizza = function(pizza) {
-  this.pizzas[pizza.size] = pizza;
-}
+  this.pizzas[this.assignPizzaId()] = pizza;
+};
 
 function PizzaMe(toppings, size) {
   this.toppings = toppings;
