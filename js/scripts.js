@@ -50,8 +50,8 @@ Order.prototype.addPizza = function(pizza) {
 
 Order.prototype.totalOrderCost = function() {
   let totalCost = 0
-  for (let i = 1; i <= this.pizzaId; i++) {
-    let pizza = this.pizzas[i]
+  for (let key in this.pizzas) {
+    let pizza = this.pizzas[key];
     totalCost += parseFloat(pizza.cost)
   }
   return financial(totalCost);
