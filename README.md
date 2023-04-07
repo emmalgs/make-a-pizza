@@ -12,10 +12,10 @@ Test: "It should return a string that represents the cost of a pizza"
 Code: 
 const newPizza = new PizzaMe(["ricotta", "sdtoms", "mushrooms"], "18");
 newPizza.cost();
-Expected Output: "$17.09"
+Expected Output: "17.09"
 
 Test: "It should also check the price of our Buckey special toppings"
 Code:
 const pizza2 = new PizzaMe (["hay", "sdtoms", "mozarella", "pellets"], "20");
 pizza2.cost();
-Expected Output: 
+Expected Output: "25.73"
