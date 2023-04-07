@@ -57,6 +57,21 @@ Order.prototype.totalOrderCost = function() {
   return financial(totalCost);
 }
 
+Order.prototype.findPizza = function(id) {
+  if (this.pizzas[id] !== undefined) {
+    return this.pizzas[id]
+  }
+  return false;
+}
+
+Order.prototype.deletePizza = function(id) {
+  if (this.pizzas[id] === undefined) {
+    return false;
+  }
+  delete this.pizzas[id];
+  return true;
+}
+
 function PizzaMe(toppings, size) {
   this.toppings = toppings;
   this.size = size;
@@ -171,13 +186,15 @@ function resetOrder() {
 }
 
 function displayOrderInfo(cost, pizza) {
+  const id = Object.keys(order.pizzas).pop()
   document.querySelector("#submit-final-order").removeAttribute("class");
-  const total = document.getElementById("total");
+
   const orderDisplay = document.querySelector(".order-list");
   const orderNumber = document.createElement("li");
   const pizzaCost = document.createElement("div");
   const toppingDisplay = document.createElement("div");
-  const sizeDisplay = document.createElement("div")
+  const sizeDisplay = document.createElement("div");
+  const deleteBtn = document.createElement("button");
 
   pizzaCost.setAttribute("class", "order-cost");
   pizzaCost.innerText = `$${cost}`;
@@ -186,12 +203,22 @@ function displayOrderInfo(cost, pizza) {
   toppingDisplay.innerText = `${pizza.toppings.join(", ")}`
 
   sizeDisplay.setAttribute("class", "order-size");
-  sizeDisplay.innerText = `${pizza.size}-inch`
-  orderNumber.append(sizeDisplay, toppingDisplay, pizzaCost);
+  sizeDisplay.innerText = `${pizza.size}-inch`;
 
-  total.innerText = `Order Total: $${order.totalOrderCost()}`
+  deleteBtn.setAttribute("class", "delete");
+  deleteBtn.setAttribute("id", id);
+  deleteBtn.innerText = "X"
 
+  orderNumber.setAttribute("id", `order${id}`);
+  orderNumber.append(sizeDisplay, toppingDisplay, pizzaCost, deleteBtn);
+  deleteBtn.addEventListener("click", handleDeletePizza)
   orderDisplay.append(orderNumber);
+  updateOrderTotal()
+}
+
+function updateOrderTotal() {
+  const total = document.getElementById("total");
+  total.innerText = `Order Total: $${order.totalOrderCost()}`
 }
 
 function startOrder() {
@@ -233,6 +260,12 @@ function displayReceipt() {
   total.innerText = `Order Total: $${order.totalOrderCost()}`
 }
 
+function handleDeletePizza(e) {
+  order.deletePizza(e.target.id);
+  document.querySelector(`#order${e.target.id}`).remove();
+  updateOrderTotal();
+}
+
 function handleFormSubmission(e) {
   e.preventDefault();
   const regToppings = getRegToppingValues();
@@ -256,5 +289,5 @@ window.addEventListener("load", function() {
   this.document.querySelector("form").addEventListener("submit", handleFormSubmission);
   this.document.querySelectorAll(".start-order").forEach(function(button) {
     button.addEventListener("click", startOrder)});
-  this.document.querySelector("button#submit-final-order").addEventListener("click", displayReceipt)
+  this.document.querySelector("button#submit-final-order").addEventListener("click", displayReceipt);
 })

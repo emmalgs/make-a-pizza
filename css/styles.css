@@ -197,13 +197,23 @@ li .order-toppings {
   text-transform: capitalize;
 }
 
+.receipt-container h4 {
+  padding: 4px;
+  margin: 0;
+}
+
+.receipt-container img {
+  width: 20%;
+  align-self: center;
+  border-radius: 10px;
+}
+
 
 #new-order {
   font-size: 1em;
   height: 40px;
   width: 180px;
   margin: auto;
-  
 }
 
 
