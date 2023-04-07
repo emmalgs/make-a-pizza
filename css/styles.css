@@ -57,6 +57,31 @@ h4 {
   border-radius: 8px;
   border-style: none;
   font-size: 1.5em;
+  background-color: var(--yellow);
+}
+
+#start-order:hover {
+  color: var(--yellow);
+  background-color: var(--blue);
+}
+
+#order-form {
+  grid-area: 3 / 2 / 7 / 6;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+#reg-toppings,
+#sizes,
+#special-toppings {
+  display: flex;
+  flex-direction: column;
+  width: 50%;
+  padding: 12px;
 }
 
 .hidden {

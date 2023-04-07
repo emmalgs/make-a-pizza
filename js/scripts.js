@@ -70,6 +70,7 @@ function displayRegToppings() {
   const regToppingsContainer = document.getElementById("reg-toppings");
   let regToppingNames = Object.keys(regToppings);
   regToppingNames.forEach(function(topping) {
+    let option = document.createElement("div")
     let label = document.createElement("label")
     let checkbox = document.createElement("input");
 
@@ -80,7 +81,8 @@ function displayRegToppings() {
     checkbox.name = topping;
     checkbox.value = topping;
 
-    regToppingsContainer.append(checkbox, label)
+    option.append(checkbox, label)
+    regToppingsContainer.append(option)
   });
 }
 
@@ -88,6 +90,7 @@ function displaySpecialToppings() {
   const specialToppingsContainer = document.getElementById("special-toppings");
   let specialToppingNames = Object.keys(specialToppings);
   specialToppingNames.forEach(function(topping) {
+    let option =document.createElement("div")
     let label = document.createElement("label")
     let checkbox = document.createElement("input");
 
@@ -98,7 +101,8 @@ function displaySpecialToppings() {
     checkbox.name = topping;
     checkbox.value = topping;
 
-    specialToppingsContainer.append(checkbox, label);
+    option.append(checkbox, label)
+    specialToppingsContainer.append(option);
   });
 }
 
@@ -106,6 +110,7 @@ function displaySizeOptions() {
   const sizeContainer = document.getElementById("sizes");
   let sizeNames = Object.keys(sizes);
   sizeNames.forEach(function(size) {
+    let option = document.createElement("div")
     let label = document.createElement("label");
     let radio = document.createElement("input");
 
@@ -116,7 +121,8 @@ function displaySizeOptions() {
     radio.id = `size${size}`;
     radio.value = size;
 
-    sizeContainer.append(radio, label);
+    option.append(radio, label)
+    sizeContainer.append(option);
   });
 }
 
