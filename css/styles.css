@@ -2,7 +2,7 @@
 
 
 :root {
-  --main-font: "Josefin Sans", Helvetica, Arial, sans-serif;
+  --main-font: "Montserrat", Helvetica, Arial, sans-serif;
   --light: #FFF1D0;
   --red: #DD1C1A;
   --yellow: #F0C808;
@@ -61,7 +61,7 @@ h4 {
   background-color: var(--red);
 }
 
-#start-order:hover {
+.start-order:hover {
   color: var(--yellow);
   background-color: var(--blue);
 }
@@ -69,9 +69,7 @@ h4 {
 #order-form {
   grid-area: 3 / 1 / 13 / 8;
 }
-.order-info {
-  grid-area: 3 / 9 / 13 / 13;
-}
+
 
 form {
   display: flex;
@@ -84,7 +82,7 @@ form {
 #special-toppings {
   display: flex;
   flex-direction: column;
-  width: 50%;
+  width: 90%;
   text-transform: capitalize;
   font-size: 1.4em;
   border: 2px double var(--blue);
@@ -107,6 +105,27 @@ h2 {
 
 span {
   float: right;
+}
+
+.order-info {
+  grid-area: 3 / 8 / 13 / 13;
+  font-size: 1.8em;
+}
+
+li {
+  font-weight: bold;
+  padding: 4px;
+  margin: 8px;
+}
+
+li div {
+  font-weight: normal;
+  padding: 4px;
+}
+
+li .order-toppings {
+  text-transform: capitalize;
+  font-style: italic;
 }
 
 #receipt {

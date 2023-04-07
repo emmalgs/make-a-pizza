@@ -48,6 +48,15 @@ Order.prototype.addPizza = function(pizza) {
   this.pizzas[this.assignPizzaId()] = pizza;
 };
 
+Order.prototype.totalOrderCost = function() {
+  let totalCost = 0
+  for (let i = 1; i <= this.pizzaId; i++) {
+    let pizza = this.pizzas[i]
+    totalCost += parseFloat(pizza.cost)
+  }
+  return financial(totalCost);
+}
+
 function PizzaMe(toppings, size) {
   this.toppings = toppings;
   this.size = size;
@@ -63,6 +72,7 @@ PizzaMe.prototype.cost = function() {
   });
   return financial(baseCost + extraCost);
 };
+
 
 // UI Logic
 
@@ -162,20 +172,24 @@ function resetOrder() {
 
 function displayOrderInfo(cost, pizza) {
   document.querySelector("#submit-final-order").removeAttribute("class");
-  const orderDisplay = document.querySelector(".order-info");
-  const totalCost = document.createElement("div");
+  const total = document.getElementById("total");
+  const orderDisplay = document.querySelector(".order-list");
+  const orderNumber = document.createElement("li");
+  const pizzaCost = document.createElement("div");
   const toppingDisplay = document.createElement("div");
   const sizeDisplay = document.createElement("div")
 
-  totalCost.setAttribute("class", "order-cost");
-  totalCost.innerText = `$${cost}`;
+  pizzaCost.setAttribute("class", "order-cost");
+  pizzaCost.innerText = `$${cost}`;
 
   toppingDisplay.setAttribute("class", "order-toppings");
   toppingDisplay.innerText = `${pizza.toppings.join(", ")}`
 
   sizeDisplay.setAttribute("class", "order-size");
   sizeDisplay.innerText = `${pizza.size}-inch`
-  orderDisplay.prepend(sizeDisplay, toppingDisplay, totalCost);
+  orderNumber.append(sizeDisplay, toppingDisplay, pizzaCost);
+
+  orderDisplay.append(orderNumber);
 }
 
 function startOrder() {
@@ -190,7 +204,8 @@ function startOrder() {
   });
   document.querySelectorAll(".order-size").forEach(function(element) {
     element.remove();
-  })
+  });
+  document.getElementById("submit-final-order").setAttribute("class", "hidden");
   order = new Order();
 }
 
