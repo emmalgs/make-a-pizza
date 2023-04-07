@@ -180,23 +180,35 @@ function displayOrderInfo(cost, pizza) {
 
 function startOrder() {
   document.getElementById("order-form").removeAttribute("class");
-  document.getElementById("start-order").setAttribute("class", "hidden");
+  document.getElementById("first-order").setAttribute("class", "hidden");
+  document.getElementById("receipt").setAttribute("class", "hidden");
+  document.querySelectorAll(".order-cost").forEach(function(element) {
+    element.remove();
+  });
+  document.querySelectorAll(".order-toppings").forEach(function(element) {
+    element.remove();
+  });
+  document.querySelectorAll(".order-size").forEach(function(element) {
+    element.remove();
+  })
   order = new Order();
 }
 
 function displayReceipt() {
   const receiptDisplay = document.querySelector("#receipt");
+  receiptDisplay.removeAttribute("class")
   const orders = Object.keys(order.pizzas)
   orders.forEach(function(item) {
     let pizzaCost = document.createElement("div");
     let pizzaToppings = document.createElement("div");
     let pizzaSize = document.createElement("div");
 
-    pizzaCost.innerText = order.pizzas[item].cost;
-    pizzaToppings.innerText = order.pizzas[item].toppings.join(", ");
-    pizzaSize = order.pizzas[item].size;
+    pizzaCost.innerText = `$${order.pizzas[item].cost}`;
+    pizzaToppings.innerText = `${order.pizzas[item].toppings.join(", ")}`;
+    pizzaToppings.setAttribute("class", "receipt-info")
+    pizzaSize = `${order.pizzas[item].size}-inch`;
 
-    receiptDisplay.append(pizzaCost, pizzaToppings, pizzaSize);
+    receiptDisplay.prepend(pizzaSize, pizzaToppings, pizzaCost);
   });
 }
 
@@ -221,6 +233,7 @@ window.addEventListener("load", function() {
   displaySpecialToppings();
   displaySizeOptions();
   this.document.querySelector("form").addEventListener("submit", handleFormSubmission);
-  this.document.querySelector("button#start-order").addEventListener("click", startOrder)
+  this.document.querySelectorAll(".start-order").forEach(function(button) {
+    button.addEventListener("click", startOrder)});
   this.document.querySelector("button#submit-final-order").addEventListener("click", displayReceipt)
 })
