@@ -2,6 +2,8 @@
 
 #### By _**Emma Gerigscott**_
 
+![gif of webpage in action](./images/pizza.gif)
+
 #### _A webpage that let's you order a few awesome pizzas featuring chef Buckey's specials_
 
 ## Technologies Used
